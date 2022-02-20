@@ -1,8 +1,9 @@
 // Copyright 2020 Your Name <your_email>
 
-#ifndef INCLUDE_STACK2_HPP
-#define INCLUDE_STACK2_HPP
+#ifndef INCLUDE_STACK2_HPP_
+#define INCLUDE_STACK2_HPP_
 #include <stdexcept>
+#include <utility>
 
 #include "stack.hpp"
 
@@ -113,4 +114,4 @@ class Stack2 {
   }
 };
 
-#endif  // INCLUDE_STACK2_HPP
+#endif  // INCLUDE_STACK2_HPP_
