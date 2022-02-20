@@ -53,7 +53,6 @@ class CustomClass {
 };
 
 int main() {
-  //  TODO 1 ex
   //  Stack<int> stack;
   //  const int& left = 50;
   //  stack.push(10);
@@ -81,8 +80,7 @@ int main() {
   //  stack1 = Stack<int>(444);
   //  std::cout << "Stack " << stack.head() << std::endl;
   //  std::cout << "Stack1 " << stack1.head() << std::endl;
-  //  TODO 1 ex END
-  //  TODO 2 ex
+
   Stack2<CustomClass> stack2(CustomClass{11 });
   stack2.head().print();
   stack2.push_emplace(22, 22.0);
