@@ -1,6 +1,9 @@
+// Copyright 2020 Your Name <your_email>
+
 #ifndef INCLUDE_STACK_HPP_
 #define INCLUDE_STACK_HPP_
 #include <stdexcept>
+#include <utility>
 
 template <typename T>
 struct Item {
@@ -20,7 +23,7 @@ class Stack {
     this->start = new Item<T>;
     this->last = this->start;
     this->check = true;
-  };
+  }
 
   explicit Stack(T&& valueStart) {
     this->check = true;
@@ -30,7 +33,7 @@ class Stack {
     this->last = this->start;
   }
 
-  Stack(T& value) = delete;
+  explicit Stack(T& value) = delete;
 
   ~Stack() {
     Item<T>* temp;
@@ -67,7 +70,7 @@ class Stack {
     temp->value = std::move(value);
     temp->link =  nullptr;
     this->last = temp;
-  };
+  }
 
   void push(const T& value) {
     if (!this->start->value) {
@@ -81,7 +84,7 @@ class Stack {
     temp->value = value;
     temp->link = nullptr;
     this->last = temp;
-  };
+  }
 
   void pop() {
     if (!this->start->link)
@@ -99,9 +102,9 @@ class Stack {
       this->last = temp;
       return;
     }
-  };
+  }
 
-  const T& head() const { return this->last->value; };
+  const T& head() const { return this->last->value; }
 
   Stack<T>& operator=(const Stack<T>& right) = delete;
 

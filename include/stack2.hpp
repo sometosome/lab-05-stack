@@ -1,5 +1,7 @@
-#ifndef TEMPLATE_STACK2_HPP
-#define TEMPLATE_STACK2_HPP
+// Copyright 2020 Your Name <your_email>
+
+#ifndef INCLUDE_STACK2_HPP
+#define INCLUDE_STACK2_HPP
 #include <stdexcept>
 
 #include "stack.hpp"
@@ -24,7 +26,7 @@ class Stack2 {
     this->last = this->start;
   }
 
-  Stack2(const T& valueStart) = delete;
+  explicit Stack2(const T& valueStart) = delete;
 
   ~Stack2() {
     Item<T>* temp;
@@ -73,9 +75,9 @@ class Stack2 {
     temp->value = std::move(value);
     temp->link = nullptr;
     this->last = temp;
-  };
+  }
 
-  const T& head() const { return this->last->value; };
+  const T& head() const { return this->last->value; }
 
   T pop() {
     if (!this->start->link)
@@ -95,7 +97,7 @@ class Stack2 {
       this->last = temp;
       return value;
     }
-  };
+  }
 
   Stack<T>& operator=(const Stack<T>& right) = delete;
 
@@ -111,4 +113,4 @@ class Stack2 {
   }
 };
 
-#endif  // TEMPLATE_STACK2_HPP
+#endif  // INCLUDE_STACK2_HPP
