@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include <string>
+#include <type_traits>
 
 #include "stack2.hpp"
 
@@ -56,7 +57,7 @@ class CustomClass {
     ft = -1;
   }
 
-  CustomClass(int fi) {
+  explicit CustomClass(const int& fi) {
     this->f = fi;
     this->ft = 0;
   }
@@ -101,4 +102,26 @@ TEST(Stack2Test, pushEmplaceTest) {
   stack2.head().print();
   stack2.push_emplace(33, 33.0);
   ASSERT_EQ(stack2.head().getStr(), "33 33.000000");
+}
+
+TEST(Stack2Test, move_and_copy_constructions){
+  EXPECT_TRUE(std::is_move_constructible<Stack2<int>>::value);
+  EXPECT_TRUE(std::is_move_assignable<Stack2<int>>::value);
+  EXPECT_TRUE(std::is_move_constructible<Stack2<CustomClass>>::value);
+  EXPECT_TRUE(std::is_move_assignable<Stack2<CustomClass>>::value);
+  EXPECT_FALSE(std::is_copy_constructible<Stack2<int>>::value);
+  EXPECT_FALSE(std::is_copy_assignable<Stack2<int>>::value);
+  EXPECT_FALSE(std::is_copy_constructible<Stack2<CustomClass>>::value);
+  EXPECT_FALSE(std::is_copy_assignable<Stack2<CustomClass>>::value);
+}
+
+TEST(StackTest, move_and_copy_constructions){
+  EXPECT_TRUE(std::is_move_constructible<Stack<int>>::value);
+  EXPECT_TRUE(std::is_move_assignable<Stack<int>>::value);
+  EXPECT_TRUE(std::is_move_constructible<Stack<CustomClass>>::value);
+  EXPECT_TRUE(std::is_move_assignable<Stack<CustomClass>>::value);
+  EXPECT_FALSE(std::is_copy_constructible<Stack<int>>::value);
+  EXPECT_FALSE(std::is_copy_assignable<Stack<int>>::value);
+  EXPECT_FALSE(std::is_copy_constructible<Stack<CustomClass>>::value);
+  EXPECT_FALSE(std::is_copy_assignable<Stack<CustomClass>>::value);
 }

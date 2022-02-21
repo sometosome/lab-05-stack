@@ -15,20 +15,20 @@ class CustomClass {
   }
 
   CustomClass(int fi) {
-    this->f = fi;
-    this->ft = 0;
+    f = fi;
+    ft = 0;
   }
 
   CustomClass(int fi, double fth) {
-    this->f = fi;
-    this->ft = fth;
+    f = fi;
+    ft = fth;
   }
 
   bool operator!() const {
-    if (this->f != -1) {
+    if (f != -1) {
       return false;
     }
-    if (this->ft != -1) {
+    if (ft != -1) {
       return false;
     }
     return true;
@@ -81,20 +81,20 @@ int main() {
   //  std::cout << "Stack " << stack.head() << std::endl;
   //  std::cout << "Stack1 " << stack1.head() << std::endl;
 
-  Stack2<CustomClass> stack2(CustomClass{11 });
-  stack2.head().print();
-  stack2.push_emplace(22, 22.0);
-  stack2.head().print();
-  stack2.push_emplace(33, 33.0);
-  stack2.head().print();
-  stack2.push_emplace(44, 44.0);
-  stack2.head().print();
-  stack2.push_emplace(55);
-  stack2.head().print();
-  stack2 = Stack2<CustomClass>(123);
-  stack2.push_emplace(2223, 2223.0);
-  stack2.push_emplace(3354, 3354.0);
-  stack2.head().print();
-  std::string a = stack2.head().getStr();
-  std::cout << a << std::endl;
+//  Stack2<CustomClass> stack2(CustomClass{11 });
+//  stack2.head().print();
+//  stack2.push_emplace(22, 22.0);
+//  stack2.head().print();
+//  stack2.push_emplace(33, 33.0);
+//  stack2.head().print();
+//  stack2.push_emplace(44, 44.0);
+//  stack2.head().print();
+//  stack2.push_emplace(55);
+//  stack2.head().print();
+//  stack2 = Stack2<CustomClass>(123);
+//  stack2.push_emplace(2223, 2223.0);
+//  stack2.push_emplace(3354, 3354.0);
+//  stack2.head().print();
+//  std::string a = stack2.head().getStr();
+//  std::cout << a << std::endl;
 }
